@@ -1,0 +1,47 @@
+/*
+Please note that it's Function problem i.e.
+you need to write your solution in the form of Function(s) only.
+Driver Code to call/invoke your function would be added by GfG's Online Judge.*/
+
+
+/*
+  Rotate a linked list after node k
+  The input list will have at least one element  
+  Return pointer to head of rotated linked list 
+  Node is defined as 
+  struct node
+  {
+     int data;
+     struct node *next;
+  }
+*/
+void rotate(struct node **head_ref, int k)
+{ 
+  // Complete this method
+  int len=1;
+  node *temp;
+  temp = *head_ref;
+  while(temp->next!=NULL)
+    {
+        temp=temp->next;
+        len++;
+    }
+    // cout<<len;
+    if(len!=k)
+    {temp = *head_ref;
+    for(int i=1;i<k;i++)
+    {
+        temp=temp->next;
+    }
+    node *temp1;
+    temp1=temp->next;
+    temp->next=NULL;
+    node *h=*head_ref;
+    *head_ref=temp1;
+    while(temp1->next!=NULL)
+    {   
+        temp1=temp1->next;
+    }
+    temp1->next=h;
+    } 
+}
